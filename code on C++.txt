@@ -1,0 +1,88 @@
+#include <iostream>
+#include <cmath>
+#include <math.h>
+
+void main()
+{
+	int lates, money, money2, code, menu;
+	cout << "Count: \n1. How many code he needs to write \n2. How many times he can late\n3. How much money he'll get\n";
+	cin >> menu;
+	switch (menu)
+	{
+	case 1:
+		cout << "Input how much he wants to earn: ";
+		cin >> money;
+		cout << "Input how many times he late: ";
+		cin >> lates;
+		money += (lates / 3) * 20;
+		if (money % 50 == 0)
+		{
+			code = money / 50 * 100;
+			cout << "He have to write " << code << " codes";
+
+		}
+		else
+		{	code = money / 50 * 100+100;
+			cout << "He have to write " << code << " codes\n";
+			money = code / 100 * 50 - (lates / 3) * 20;
+			cout << "He will get " << money;
+		}
+		break;
+	case 2:
+		cout << "Input how many code he wrote: ";
+		cin >> code;
+		cout << "Input how much money he wants to earn: ";
+		cin >> money2;
+		if (code % 100 == 0)
+		{
+			money = (code / 100) * 50; 
+			if (money < money2)
+			{
+				cout << "Now he can get " << money << " money\n";
+				cout << "He can late " << (money / 20) * 3 << " times and then he will be able to earn " << money2 - money << " money";
+			}
+			else if (money >= money2)
+				cout << "He had got as much money as he wanted.\n He can late " << (money / 20) * 3+2 << " times";
+		}
+		else if (code < 100)
+			cout << "He won't get any money";
+		else
+		{
+			money = (code / 100) * 50 + 50;
+			if (money < money2)
+			{
+				cout << "Now he can get " << money << " money\n";
+				cout << "He can late " << (money / 20) * 3 << " times and then he will be able to earn " << money2 - money << " money";
+			}
+			else if (money >= money2)
+				cout << "He had got as much money as he wanted.\nHe can late " << (money / 20) * 3 << " times";
+		}
+			
+		break;
+	case 3:
+		cout << "Input how many code he wrote: ";
+		cin >> code;
+		cout << "Input how many times he was late: ";
+		cin >> lates;
+		if (code%100 == 0)
+		{
+			money = (code / 100) * 50 - (lates / 3) * 20;
+			if (money <= 0)
+				cout << "He won't get any money";
+			else if (money > 0) cout << "He'll get " << money << " money.";
+			
+		}
+		else if (code < 100)
+			cout << "He won't get money";
+		else
+		{
+			money = ((code / 100) * 50 + 50) - (lates / 3) * 20;
+			if (money <= 0)
+				cout << "He won't get any money";
+			else if (money > 0) cout << "He'll get " << money << " money.";
+		}
+		break;
+	default:
+		cout << "ERROR!";
+		break;
+	}
