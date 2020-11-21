@@ -86,5 +86,4 @@ void main()
 		cout << "ERROR!";
 		break;
 	}
-	
-![1](1.jpg)
+}
